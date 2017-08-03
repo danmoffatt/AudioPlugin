@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+    id=“dans-audio-plugin”
+    version="1.0.0">
+    <name>Audio Plugin</name>
+    <description></description>
+    <license>MIT</license>
+    <keywords>audio,plugin,cordova</keywords>
+    <repo>https://github.com/danmoffatt/AudioPlugin.git</repo>
+    <issue>https://github.com/danmoffatt/AudioPlugin.git/issues</issue>
+
+    <!-- android -->
+    <platform name="android">
+      <js-module src="www/plugin.js" name="plugin">
+        <runs/>
+        <clobbers target=“AudioPlugin” />
+      </js-module>
+      <config-file target="res/xml/config.xml" parent="/*">
+        <feature name=“AudioPlugin">
+          <param name="android-package" value="com.example.AudioPlugin” />
+          <param name="onload" value="true" />
+        </feature>
+      </config-file>
+
+      <source-file src="src/android/com/example/AudioPlugin.java" target-dir="src/com/example/" />
+    </platform>
+
+    <!-- ios -->
+    <platform name="ios">
+        <js-module src="www/plugin.js" name="plugin">
+            <runs/>
+            <clobbers target=“AudioPlugin” />
+        </js-module>
+        <config-file target="config.xml" parent="/*">
+            <feature name=“AudioPlugin”>
+                <param name="ios-package" value=“AudioPlugin” onload="true" />
+            </feature>
+        </config-file>
+
+        <header-file src="src/ios/AudioPlugin.h” />
+        <source-file src="src/ios/AudioPlugin.m" />
+    </platform>
+</plugin>
