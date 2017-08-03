@@ -1,4 +1,3 @@
-Cordova Plugin Template
-======
+Test Audio Plugin / Cordova
 
-This is a simple starting point for building a Cordova plugin on iOS and Android.
+Example audio plugin.
