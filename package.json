@@ -1,1 +1,1 @@
-{"name": “audio-plugin”,”version": "1.0.0","cordova": {"id": "dans-audio-plugin","platforms": ["android","ios"]},"description": “example audio”}
+{"name":"audio-plugin","version":"1.0.0","cordova":{"id":"dans-audio-plugin","platforms":["android","ios"]},"description":"example audio"}
