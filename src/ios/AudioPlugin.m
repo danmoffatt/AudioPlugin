@@ -38,12 +38,11 @@
 
     [self _stop];
 
-    CDVPluginResult *result = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:iso8601String];
+    CDVPluginResult *result = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:@"Success"];
     [self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
 }
     
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
-    
     CDVPluginResult *result = nil;
     
     if (object == audioPlayer && [keyPath isEqualToString:@"status"]) {
@@ -55,14 +54,14 @@
             NSLog(@"AVPlayerStatusReadyToPlay");
             
             [audioPlayer play];
-            [CDVPluginResult resultWithStatus:success ? CDVCommandStatus_OK : CDVCommandStatus_ERROR messageAsString:@"Success. File playing..."];
+            [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:@"Success. File playing..."];
         }
     }
     
     if (result == nil)
         result = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:@"Error Unknown"];
     
-    [self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
+    [self.commandDelegate sendPluginResult:result callbackId:playCommand.callbackId];
 }
     
 - (void)playerItemDidReachEnd:(NSNotification *)notification {
